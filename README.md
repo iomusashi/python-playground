@@ -6,16 +6,40 @@ Nothing. Nothing here.
 
 ## Getting started
 
+### Python3
+
 Install python3 via homebrew, apt, or pkg.
 
 If you just want to play games, or explore python, that's all you need.
 
+### Jupyter Notebook / Caffe2
 If you want to play using jupyter notebook and caffe2, continue:
 
-Install
-pip3, setuptools, and virtualenvwrapper.
+#### Play safe, use virtual environments
 
-Create your own venv, and continue installation on pip packages:
+When playing with Jupyter and Caffe, it is advisable to work on a virtual environment to install dependencies without affecting your personal computing environment.
+
+To do so, use the Python3-env to manage virtual environments. See some useful python3-env commands below.
+
+Create a new virtual environment
+```bash
+python -m venv ~/env
+```
+
+Activate the virtual environment
+```bash
+source ~/env/bin/activate
+```
+
+Deactivate the virtual environment
+```bash
+deactivate
+```
+
+#### Install
+Install pip3, and setuptools.
+
+Create and activate your virtual environment, and continue installation on the following pip packages:
 ```bash
 pip install
     future \
@@ -37,8 +61,7 @@ pip install
     scipy
 ```
 
-I recommend installing pip packages over a venv to avoid conflicting packages
-with your personal env.
+I recommend installing pip packages over a virtual environment to avoid conflicting packages with your personal computing environment.
 
 ### /boring-stuff
 Collection of stuff about learning the language.
@@ -75,3 +98,7 @@ NN+ML Review materials for maths:
 Linear Algebra and Multivariate Calc
 
 /tensorflow - Stuff relating to learning tensorflow.
+
+### 100-days of Python
+
+Just some practice of python awesomeness in 100 days.
