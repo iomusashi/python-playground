@@ -41,24 +41,13 @@ print('Computer chose:')
 computer_choice = random.randint(0, len(jankenpon) - 1)
 print(jankenpon[computer_choice])
 
-if choice == 0:
-    if computer_choice == 0:
-        print('Draw!')
-    elif computer_choice == 1:
-        print('You lose!')
-    else:
-        print('You win!')
-elif choice == 1:
-    if computer_choice == 0:
-        print('You win!')
-    elif computer_choice == 1:
-        print('Draw!')
-    else:
-        print('You lose!')
+if choice == 0 and computer_choice == 2:
+    print('You win!')
+elif computer_choice == 0 and choice == 2:
+    print('You lose!')
+elif choice > computer_choice:
+    print('You win!')
+elif computer_choice > choice:
+    print('You lose!')
 else:
-    if computer_choice == 0:
-        print('You lose!')
-    elif computer_choice == 1:
-        print('You win!')
-    else:
-        print('Draw!')
+    print('Draw!')
