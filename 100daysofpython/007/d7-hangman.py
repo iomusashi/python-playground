@@ -1,64 +1,7 @@
 import random
+from d7_hangman_art import stages
+from d7_hangman_word import word_list
 
-stages = ['''
-  +---+
-  |   |
-  O   |
- /|\  |
- / \  |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
- /    |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|   |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
-  |   |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
-      |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-      |
-      |
-      |
-      |
-=========
-''']
-
-word_list = ['aardvark', 'baboon', 'camel']
 answer = random.choice(word_list)
 lives = len(stages) - 1
 
@@ -81,6 +24,8 @@ while word_guessed != answer and lives > 0:
     print(letters)
     print(stages[lives])
 
-if lives > 0:
+if lives > 0:  
     print('Congratulations! You won!')
+else:
+    print(f'You\'ve been hanged! The word is {answer}.')
 print('Game over!')
