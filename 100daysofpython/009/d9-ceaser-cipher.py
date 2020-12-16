@@ -3,12 +3,6 @@ from d9_caeser_cipher_art import logo
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
 print(logo)
-direction = input('Type \'encode\' to encrypt, type \'decode\' to decrypt:\n')
-if direction != 'encode' and direction != 'decode':
-  raise SystemExit(0)
-
-text = input(f'Type your message to {direction}:\n').lower()
-shift = int(input('Type the shift number:\n'))
 
 def encrypt(text, shift):
   cipher_text = ''
@@ -29,9 +23,18 @@ def decrypt(cipher_text, shift):
     text += letter
   print(f'The decoded cipher text is {text}')
 
-if direction == 'encode':
-  encrypt(text, shift)
-elif direction == 'decode':
-  decrypt(text, shift)
-else:
-  raise SystemExit(0)
+exit = False
+while not exit:
+  direction = input('Type \'encode\' to encrypt, type \'decode\' to decrypt:\n')
+  if direction != 'encode' and direction != 'decode':
+    raise SystemExit(0)
+
+  text = input(f'Type your message to {direction}:\n').lower()
+  shift = int(input('Type the shift number:\n'))
+  if direction == 'encode':
+    encrypt(text, shift)
+  elif direction == 'decode':
+    decrypt(text, shift)
+  else:
+    raise SystemExit(0)
+  exit = input('Type \'yes\' if you want to go again. Otherwise, type \'no\'.\n') == 'no'
