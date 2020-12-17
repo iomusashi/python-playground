@@ -28,7 +28,7 @@ def calculate(x, y, op):
 
 def run_calculator():
   print(logo)
-  n1 = int(input('What\'s the first number? '))
+  n1 = float(input('What\'s the first number? '))
   repeat = True
 
   while repeat:
@@ -37,7 +37,7 @@ def run_calculator():
     if not is_operator_valid(op):
       raise SystemExit()
 
-    n2 = int(input('What\'s the second number? '))
+    n2 = float(input('What\'s the second number? '))
     answer = calculate(n1, n2, op)
     print(f'{n1} {op} {n2} = {answer}')
     repeat = input(f'Type \'y\' to continue calculating with {answer}, or type \'n\' to start a new calculation: ').lower() == 'y'
