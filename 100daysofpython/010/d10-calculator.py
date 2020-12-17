@@ -26,19 +26,24 @@ def calculate(x, y, op):
   result = operation(op)(x, y)
   return result
 
-print(logo)
-n1 = int(input('What\'s the first number? '))
-repeat = True
+def run_calculator():
+  print(logo)
+  n1 = int(input('What\'s the first number? '))
+  repeat = True
 
-while repeat:
-  print('+\n-\n*\n/')
-  op = input('Pick an operation: ')
-  if not is_operator_valid(op):
-    raise SystemExit()
+  while repeat:
+    print('+\n-\n*\n/')
+    op = input('Pick an operation: ')
+    if not is_operator_valid(op):
+      raise SystemExit()
 
-  n2 = int(input('What\'s the second number? '))
-  answer = calculate(n1, n2, op)
-  print(f'{n1} {op} {n2} = {answer}')
-  repeat = input(f'Type \'y\' to continue calculating with {answer}, or type \'n\' to start a new calculation: ').lower() == 'y'
-  if repeat:
-    n1 = answer
+    n2 = int(input('What\'s the second number? '))
+    answer = calculate(n1, n2, op)
+    print(f'{n1} {op} {n2} = {answer}')
+    repeat = input(f'Type \'y\' to continue calculating with {answer}, or type \'n\' to start a new calculation: ').lower() == 'y'
+    if repeat:
+      n1 = answer
+    else:
+      run_calculator()
+
+run_calculator()
