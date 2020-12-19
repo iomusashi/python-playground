@@ -66,5 +66,12 @@ elif player_is_blackjack:
   print('You drawed a blackjack! You win!')
   print('Congratulations!')
 else:
+  print(f'Player: {", ".join(card for card in player)}')
+  print(f'Computer: {computer[0]}')
   player_score = calculate_score(player)
   computer_score = calculate_score(computer)
+
+  if player_score > BLACKJACK:
+    print('You have a bust! You lose!')
+    print('Game over')
+    raise SystemExit()
