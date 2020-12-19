@@ -34,9 +34,16 @@ def deal_card():
 def has_blackjack(draw):
   return calculate_score(draw) == BLACKJACK
 
+def has_ace(draw):
+  return draw.count('Ace') > 0
+
+def count_ace(draw):
+  return draw.count('Ace')
+
 def calculate_score(draw):
-  value_map = list(map(lambda card: card_score, draw))
-  return reduce(lambda x, y: x + y, value_map, 0)
+  value_map = list(map(lambda card: card_score[card], draw))
+  score = reduce(lambda x, y: x + y, value_map, 0)
+  return score if not has_ace(draw) and score <= BLACKJACK else score - (10 * count_ace(draw))
 
 # play = True
 # while play:
@@ -46,6 +53,8 @@ player = [deal_card(), deal_card()]
 computer = [deal_card(), deal_card()]
 print(f'player: {player}')
 print(f'computer: {computer}')
+print(f'player score: {calculate_score(player)}')
+print(f'computer score: {calculate_score(computer)}')
 
 player_is_blackjack = has_blackjack(player)
 computer_is_blackjack = has_blackjack(computer)
