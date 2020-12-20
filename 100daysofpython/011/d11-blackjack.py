@@ -1,6 +1,7 @@
 from functools import reduce
 from random import choice
 
+from d11_blackjack_art import logo
 from d11_blackjack_utility import clear
 from d11_blackjack_utility import BLACKJACK
 ############### Our Blackjack House Rules #####################
@@ -49,6 +50,7 @@ def calculate_score(draw):
 # while play:
 
 clear()
+print(logo)
 player = [deal_card(), deal_card()]
 computer = [deal_card(), deal_card()]
 print(f'player: {player}')
