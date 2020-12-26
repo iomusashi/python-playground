@@ -5,19 +5,23 @@ from d14_higherlower_utils import clear
 
 from random import choice
 
+picked_indices = []
 pick1 = {}
 pick2 = {}
 score = 0
 
 def initialize():
+  global picked_indices
   global pick1
   global pick2
   global score
   pick1 = choice(data)
+  picked_indices.append(data.index(pick1))
   pick2 = pick1
   score = 0
 
 def higherlower():
+  global picked_indices
   global pick1
   global pick2
   global score
@@ -25,8 +29,10 @@ def higherlower():
   in_play = True
   while in_play:
     while pick2 == pick1:
-      pick2 = choice(data)
+      randpick = choice(data)
+      pick2 = randpick if data.index(randpick) not in picked_indices else pick1
     
+    picked_indices.append(data.index(pick2))
     clear()
     print(logo)
     if score > 0:
