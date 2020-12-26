@@ -42,7 +42,7 @@ def higherlower():
     print(f"Against B: {pick2['name']}, a {pick2['description']}, from {pick2['country']}")
     player_pick = input('Who has more followers? Type \'A\' or \'B\': ').lower()
     if int(pick1['follower_count']) > int(pick2['follower_count']) and player_pick == 'a':
-      pick1 = pick2
+      pick2 = pick1
       score += 1
     elif int(pick2['follower_count']) > int(pick1['follower_count']) and player_pick == 'b':
       pick1 = pick2
