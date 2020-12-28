@@ -1,9 +1,11 @@
 print('Welcome to the Love Calculator!')
 
+
 def countFor(character, name1, name2):
     count = name1.lower().count(character) + name2.lower().count(character)
     print(f'{character} occurs {count} times')
     return count
+
 
 name1 = input('What is your name? ')
 name2 = input('What is their name? ')
@@ -26,7 +28,8 @@ print(f'Total = {love_count}')
 total_score = int(f'{true_count}{love_count}')
 
 if total_score < 10 or total_score > 90:
-    print(f'Your score is {total_score}, you go together like coke and mentos.')
+    print(
+        f'Your score is {total_score}, you go together like coke and mentos.')
 elif total_score >= 40 and total_score <= 50:
     print(f'Your score is {total_score}, you are alright together.')
 else:

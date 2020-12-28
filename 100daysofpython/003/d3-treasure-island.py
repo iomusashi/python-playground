@@ -21,15 +21,18 @@ ____/______/______/______/______/_____"=.o|o_.--""___/______/______/______/____
 *******************************************************************************
 ''')
 
+
 def printAndExit(string):
     print(string)
     print('Game Over.')
     raise SystemExit(0)
 
+
 print('Welcome to Treasure Island.')
 print('Your mission is to find the treasure.')
 
-choice1 = input('You\'re at a crossroad, where do you want to go? Type "left" or "right". ').lower()
+choice1 = input(
+    'You\'re at a crossroad, where do you want to go? Type "left" or "right". ').lower()
 if choice1 != 'left':
     printAndExit('You fell into a hole.')
 
@@ -39,10 +42,12 @@ if choice2 != 'wait':
 
 choice3 = input('You arrive at the island unharmed. There is a house with 3 doors. One red, one yellow, and one blue. Which colour do you choose? ').lower()
 if choice3 == 'red':
-    printAndExit('You entered the red door, but it was a trap! You were burned by fire.')
+    printAndExit(
+        'You entered the red door, but it was a trap! You were burned by fire.')
 elif choice3 == 'yellow':
     print('You entered the yellow door. The room was safe. A goddess awaits you and will grant you three wishes towards your new life. You win!')
 elif choice3 == 'blue':
-    printAndExit('You entered the blue door, but it was a trap! The room is filled with deadly beasts who eats you. You died.')
+    printAndExit(
+        'You entered the blue door, but it was a trap! The room is filled with deadly beasts who eats you. You died.')
 else:
     print('Game Over.')
