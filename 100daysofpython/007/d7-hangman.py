@@ -24,7 +24,7 @@ while word_guessed != answer and lives > 0:
     print(letters)
     print(stages[lives])
 
-if lives > 0:  
+if lives > 0:
     print('Congratulations! You won!')
 else:
     print(f'You\'ve been hanged! The word is {answer}.')
