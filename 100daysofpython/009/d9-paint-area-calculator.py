@@ -2,6 +2,7 @@ def paint_calc(height, width, cover):
     number_of_cans = (height * width) / cover
     return round(number_of_cans)
 
+
 test_h = 2
 test_w = 4
 coverage = 5

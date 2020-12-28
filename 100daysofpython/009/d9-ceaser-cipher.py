@@ -1,40 +1,47 @@
 from d9_caeser_cipher_art import logo
 
-alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
+            'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
 print(logo)
 
+
 def encrypt(text, shift):
-  cipher_text = ''
-  for char in text:
-    index = alphabet.index(char)
-    shifted = index + shift
-    shifted = shifted if shifted < len(alphabet) else shifted % len(alphabet)
-    letter = alphabet[shifted]
-    cipher_text += letter
-  print(f'The encoded text is {cipher_text}')
+    cipher_text = ''
+    for char in text:
+        index = alphabet.index(char)
+        shifted = index + shift
+        shifted = shifted if shifted < len(
+            alphabet) else shifted % len(alphabet)
+        letter = alphabet[shifted]
+        cipher_text += letter
+    print(f'The encoded text is {cipher_text}')
+
 
 def decrypt(cipher_text, shift):
-  text = ''
-  for char in cipher_text:
-    index = alphabet.index(char)
-    shifted = index - shift
-    letter = alphabet[shifted]
-    text += letter
-  print(f'The decoded cipher text is {text}')
+    text = ''
+    for char in cipher_text:
+        index = alphabet.index(char)
+        shifted = index - shift
+        letter = alphabet[shifted]
+        text += letter
+    print(f'The decoded cipher text is {text}')
+
 
 exit = False
 while not exit:
-  direction = input('Type \'encode\' to encrypt, type \'decode\' to decrypt:\n')
-  if direction != 'encode' and direction != 'decode':
-    raise SystemExit(0)
+    direction = input(
+        'Type \'encode\' to encrypt, type \'decode\' to decrypt:\n')
+    if direction != 'encode' and direction != 'decode':
+        raise SystemExit(0)
 
-  text = input(f'Type your message to {direction}:\n').lower()
-  shift = int(input('Type the shift number:\n'))
-  if direction == 'encode':
-    encrypt(text, shift)
-  elif direction == 'decode':
-    decrypt(text, shift)
-  else:
-    raise SystemExit(0)
-  exit = input('Type \'yes\' if you want to go again. Otherwise, type \'no\'.\n') == 'no'
+    text = input(f'Type your message to {direction}:\n').lower()
+    shift = int(input('Type the shift number:\n'))
+    if direction == 'encode':
+        encrypt(text, shift)
+    elif direction == 'decode':
+        decrypt(text, shift)
+    else:
+        raise SystemExit(0)
+    exit = input(
+        'Type \'yes\' if you want to go again. Otherwise, type \'no\'.\n') == 'no'
