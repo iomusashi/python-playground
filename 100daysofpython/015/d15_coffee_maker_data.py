@@ -29,3 +29,9 @@ resources = {
     "milk": 200,
     "coffee": 100,
 }
+
+unit_measurement = {
+    "water": "ml",
+    "milk": "ml",
+    "coffee": "g",
+}
