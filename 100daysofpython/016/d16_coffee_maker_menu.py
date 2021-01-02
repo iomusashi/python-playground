@@ -21,6 +21,9 @@ class Menu:
             MenuItem(name="cappuccino", water=250, milk=50, coffee=24, cost=3),
         ]
 
+    def __contains__(self, order):
+        return order in map(lambda item: item.name, self.menu)
+
     def get_items(self):
         """Returns all the names of the available menu items"""
         options = ""
@@ -34,3 +37,18 @@ class Menu:
             if item.name == order_name:
                 return item
         print("Sorry that item is not available.")
+
+    def cost_of_drink(self, order_name):
+        """
+        Returns the cost of drink if included in the menu
+        Otherwise, returns 0.0
+        """
+        if order_name not in map(lambda item: item.name, self.menu):
+            return 0.0
+        else:
+            filtered = list(
+                filter(lambda item: item.name == order_name, self.menu))
+            print(filtered)
+            if len(filtered) == 0:
+                return 0.0
+            return filtered[0].cost
