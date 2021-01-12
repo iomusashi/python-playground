@@ -3,6 +3,7 @@ from random import choice
 from random import randrange
 from turtle import Screen
 from turtle import Turtle
+from turtle import screensize
 
 DOT_SIZE = 20
 DISTANCE = 50
@@ -10,6 +11,7 @@ GREYSCALE_COLOR_RANGE = 256
 rgb_colors = []
 turtle = Turtle()
 screen = Screen()
+screensize(520, 520, "black")
 
 
 def extract_colors() -> list:
@@ -29,7 +31,8 @@ def hirst_spots(grid_size=10):
     turtle.speed("fastest")
     for i in range(grid_size):
         for j in range(grid_size):
-            turtle.setposition(j * DISTANCE, i * DISTANCE)
+            mid = grid_size / 2
+            turtle.setposition((j - mid) * DISTANCE, (i - mid) * DISTANCE)
             turtle.pencolor(choice(rgb_colors))
             turtle.pendown()
             turtle.dot(DOT_SIZE)
